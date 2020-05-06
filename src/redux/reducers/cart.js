@@ -7,7 +7,6 @@ const INITIAL_STATE = {
 const repos = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "UPDATE_CART":
-      console.log("add-te");
       return {
         ...state,
         items: [...action.payload],

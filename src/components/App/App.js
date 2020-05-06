@@ -1,32 +1,29 @@
 import React from "react";
-import "./App.css";
+import { connect } from "react-redux";
 
-import { useDispatch, connect } from "react-redux";
-import { checkout } from "../../redux/actions/cart";
-
+import Navbar from "../Navbar";
 import Item from "../Item";
 import Cart from "../Cart";
+import "./App.css";
 
 function App({ cart, products }) {
-  const dispatch = useDispatch();
+  const quantity = cart.reduce((acc, val) => {
+    acc[val.id] = val.quantity;
+    return acc;
+  }, {});
 
   return (
     <div className="App">
-      <nav>
-        <ul>
-          <li>Home</li>
-          <li>Cart</li>
-        </ul>
-      </nav>
+      <Navbar />
       <div className="layout">
         <div className="items">
           <div>Items</div>
           {products.map((item) => (
-            <Item key={item.id} {...item} />
+            <Item key={item.id} {...item} qty={quantity[item.id] || 0} />
           ))}
         </div>
 
-        <Cart checkout={() => dispatch(checkout())} cart={cart} />
+        <Cart />
       </div>
     </div>
   );

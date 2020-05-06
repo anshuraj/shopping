@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { addItem, removeItem, updateQuantity } from "../redux/actions/cart";
 import { useDispatch, connect } from "react-redux";
 
-function Item({ id, name, price }) {
-  const [quantity, setQuantity] = useState(0);
+function Item({ id, name, price, qty }) {
+  const [quantity, setQuantity] = useState(qty || 0);
+
+  useEffect(() => {
+    setQuantity(qty);
+  }, [qty]);
+
   const dispatch = useDispatch();
 
   const add = () => {
