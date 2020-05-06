@@ -1,7 +1,7 @@
-const localCart = localStorage.getItem("cart") || [];
+const localCart = localStorage.getItem("cart");
 
 const INITIAL_STATE = {
-  items: JSON.parse(localCart),
+  items: JSON.parse(localCart) || [],
 };
 
 const repos = (state = INITIAL_STATE, action) => {
