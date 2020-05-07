@@ -16,8 +16,8 @@ function App({ cart, products }) {
     <div className="App">
       <Navbar />
       <div className="layout">
-        <div className="items">
-          <div>Items</div>
+        <div className="products scrollable">
+          <div className="title">Items</div>
           {products.map((item) => (
             <Item key={item.id} {...item} qty={quantity[item.id] || 0} />
           ))}

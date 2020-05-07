@@ -31,11 +31,15 @@ function Item({ id, name, price, qty }) {
   };
   return (
     <div className="item">
-      <h4>{name}</h4>
-      <p>Rs. {price}</p>
-      <button onClick={remove}>-</button>
-      <input type="text" value={quantity} onChange={changeQuantity} />
-      <button onClick={add}>+</button>
+      <div>
+        <h4>{name}</h4>
+        <p>Rs. {price}</p>
+      </div>
+      <div className="controls">
+        <button onClick={remove}>-</button>
+        <input type="text" value={quantity} onChange={changeQuantity} />
+        <button onClick={add}>+</button>
+      </div>
     </div>
   );
 }

@@ -28,5 +28,25 @@
     "id": 6,
     "name": "Yogurt",
     "price": 45
+  },
+  {
+    "id": 7,
+    "name": "Cheese",
+    "price": 60
+  },
+  {
+    "id": 8,
+    "name": "Ice cream",
+    "price": 50
+  },
+  {
+    "id": 9,
+    "name": "Biscuit",
+    "price": 20
+  },
+  {
+    "id": 10,
+    "name": "Chips",
+    "price": 20
   }
 ]

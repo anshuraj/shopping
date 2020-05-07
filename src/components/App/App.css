@@ -1,41 +1,75 @@
 .layout {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: auto auto;
+  column-gap: 25px;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fafafa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 nav {
-  padding: 25px;
+  background-color: #29b6f6;
+  color: white;
+  padding: 25px 100px;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  /* place-content: space-around; */
   padding: 0;
   margin: 0;
 }
 
-.items {
+.products {
   padding: 0 25px;
 }
 
-.item {
-  border-bottom: 1px solid;
+.scrollable {
+  height: calc(100vh - 70px);
+  overflow-y: scroll;
+}
+
+.products .item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #c1c1c1;
   padding: 10px;
 }
 
-.item button {
-  height: 25px;
-  width: 25px;
+.products .item button {
+  height: 30px;
+  width: 30px;
   background: none;
   border-radius: 5px;
-  /* margin: 0 10px; */
   cursor: pointer;
 }
 
-.item input {
-  width: 25px;
-  height: 20px;
+.products .item input {
+  width: 30px;
+  height: 24px;
+  text-align: center;
+}
+.products .item h4,
+.products .item p {
+  margin: 10px 0;
+}
+
+.products .item .controls {
+  align-self: center;
+  padding: 0 20px;
 }
 
 button.checkout {
@@ -43,4 +77,56 @@ button.checkout {
   width: 150px;
   background: lightblue;
   font-size: 14px;
+}
+
+.title {
+  text-align: center;
+  padding: 20px;
+}
+
+.cart .empty {
+  text-align: center;
+  color: #5a5a5a;
+  padding: 0 25px;
+}
+
+.cart h4 {
+  display: inline;
+  margin-right: 30px;
+}
+
+.cart .item {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.cart .price {
+  color: #5a5a5a;
+}
+
+.cart .items {
+  padding: 10px;
+  padding-right: 100px;
+}
+
+@media only screen and (max-width: 640px) {
+  .products .item {
+    flex-direction: column;
+    padding: 10px 0;
+  }
+  .products .item .controls {
+    padding: 0;
+    align-self: unset;
+  }
+
+  .cart .items {
+    padding: 10px;
+  }
+  .products {
+    padding: 15px;
+  }
+  .layout {
+    column-gap: 15px;
+  }
 }
